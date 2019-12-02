@@ -1,2 +1,2 @@
 # tinyC
-Implementing a compiler like C language using java.
+Implementing a C-like program language using java.
