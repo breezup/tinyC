@@ -1,6 +1,6 @@
 ## TOKEN
 1. ### 符号
-   ( ) { } [ ] " ' ; + - * / % ^ & | = < > == >= <= != && || 
+   ( ) { } [ ] " ' ; + - * / % & | = < > == >= <= !
 2. ### 关键字
    - **数据类型：** int double char string bool true false
    - **循环控制：** while break continue
