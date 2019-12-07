@@ -1,8 +1,11 @@
+package Lexical;
+
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Reader{
+class Reader{
     private char[] buffer;
     private FileReader reader;
     private boolean  end;
@@ -21,7 +24,7 @@ public class Reader{
     boolean isEmpty(){
         return this.end;
     }
-    public char getChar(){
+    char getChar(){
         char ret = ' ';
         if(this.buffer[0]!=' '){
             ret = this.buffer[0];
@@ -42,7 +45,7 @@ public class Reader{
         }
         return ret;
     }
-    public void putChar(char c){
+    void putChar(char c){
         this.buffer[0] = c;
     }
 }
