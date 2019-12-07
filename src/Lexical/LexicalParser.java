@@ -1,5 +1,6 @@
 package Lexical;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -253,7 +254,7 @@ public class LexicalParser {
         }
         return new Word(Type.None,"");
     }
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Reader r = new Reader("D:\\GitWorkSpace\\tinyC\\src\\Lexical\\main.t");
         words = new LinkedList<>();
         Word w;
@@ -262,8 +263,21 @@ public class LexicalParser {
             if(!(w.getType()==Type.None))
                 words.add(w);
         }
-        for(Word wd:words){
-            wd.info();
+        File file = new File("D:\\GitWorkSpace\\tinyC\\src\\Lexical\\Token");
+        try {
+            if(!file.exists())
+                file.createNewFile();
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(Word wd:words){
+                bw.write(wd.info());
+                bw.write("\r");
+                bw.flush();
+            }
+            bw.close();
+            System.out.println("All tokens were Written.");
+        }catch(IOException e){
+            e.printStackTrace();
         }
     }
 }

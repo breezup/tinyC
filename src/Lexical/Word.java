@@ -10,8 +10,8 @@ class Word {
         this.type = type;
         this.value = value;
     }
-    void info(){
-        System.out.println("type:"+this.type+" "+"value:"+this.value);
+    String info(){
+        return this.type+" --> "+this.value;
     }
     Type getType(){
         return this.type;
