@@ -1,0 +1,4 @@
+id = const * const + id / id ;
+$
+id = const + id * ( const + id ) ;
+$
