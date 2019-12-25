@@ -269,6 +269,7 @@ public class LexicalParser {
                 file.createNewFile();
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
+
             for(Word wd:words){
                 bw.write(wd.info());
                 bw.write("\r");

@@ -1,7 +1,6 @@
 package Syntax;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -31,13 +30,34 @@ public class SyntaxParser {
         }
         Table table = new Table();
         LinkedList<Integer> reductionSeq;
-        while(TokenArray.size()>0){
-            reductionSeq = table.getReductionSeq(TokenArray);
-            for (Integer integer : reductionSeq) {
-                System.out.print(integer+"  ");
+        File outfile = new File("D:\\GitWorkSpace\\tinyC\\src\\Syntax\\Seq");
+        try {
+            if (!outfile.exists())
+                outfile.createNewFile();
+            FileWriter fw = new FileWriter(outfile);
+            BufferedWriter bw = new BufferedWriter(fw);
+            fw.write("1. S->A;\r");
+            fw.write("2. A->id=E\r");
+            fw.write("3. E->E*E\r");
+            fw.write("4. E->E/E\r");
+            fw.write("5. E->E+E\r");
+            fw.write("6. E->E-E\r");
+            fw.write("7. E->id\r");
+            fw.write("8. E->const\r");
+            fw.write("9. E->(E)\r");
+            fw.flush();
+            fw.write("============reduction sequences============\r");
+            while(TokenArray.size()>0){
+                reductionSeq = table.getReductionSeq(TokenArray);
+                for (Integer integer : reductionSeq) {
+                    fw.write(integer+" ");
+                }
+                fw.write("\r");
+                fw.flush();
             }
-            System.out.println();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
-
+            System.out.println("All sequences were written.");
     }
 }

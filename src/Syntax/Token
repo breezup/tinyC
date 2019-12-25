@@ -1,4 +1,1 @@
-id = const * const + id / id ;
-$
-id = const + id * ( const + id ) ;
-$
+id = id + id ;$id = id + const + ( id * ( id + id ) ) ;$
